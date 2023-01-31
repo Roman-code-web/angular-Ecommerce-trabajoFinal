@@ -4,6 +4,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ProductosComponent } from './productos/productos.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
+import { ComponentesModule } from '../componentes/componentes.module';
 
 
 
@@ -15,7 +16,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     PedidosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentesModule
   ],exports:[
     InicioComponent,
     ProductosComponent,
