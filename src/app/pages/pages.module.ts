@@ -6,6 +6,12 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { ComponentesModule } from '../componentes/componentes.module';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { CrudproductosComponent } from './Admin/crudproductos/crudproductos.component';
+import { CrudusuariosComponent } from './Admin/crudusuarios/crudusuarios.component';
+
+
+
 
 
 
@@ -14,18 +20,23 @@ import { SharedModule } from '../shared/shared.module';
     InicioComponent,
     ProductosComponent,
     DetalleComponent,
-    PedidosComponent
+    PedidosComponent,
+    DashboardComponent,
+    CrudproductosComponent,
+    CrudusuariosComponent
   ],
   imports: [
     CommonModule,
     ComponentesModule,
-    SharedModule
+    SharedModule,
   ],exports:[
     InicioComponent,
     ProductosComponent,
     DetalleComponent,
     PedidosComponent,
-    
+    DashboardComponent,
+    CrudproductosComponent,
+    CrudusuariosComponent
   ]
 })
 export class PagesModule { }

@@ -9,6 +9,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { PagesModule } from './pages/pages.module';
 import { ComponentesModule } from './componentes/componentes.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ComponentesModule } from './componentes/componentes.module';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     PagesModule,
-    ComponentesModule
+    ComponentesModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
