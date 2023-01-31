@@ -1,0 +1,64 @@
+.bg__navbar{
+    background-color: #000;
+}
+.span__morado{
+    color: #9C34C2;
+}
+.span__verde{
+    color: #4CCFF1;
+}
+.nav__link__a{
+    color: #fff !important;
+    margin: 0px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 5px 10px !important;
+    text-align: center !important;
+    border-radius: 15px;
+}
+.nav__link__a:hover{
+    color: #fff !important;
+    margin: 0px 20px;
+    background-color: #9C34C2;
+}
+.dropdown__carrito{
+    border: none !important;
+}
+.dropdown__carrito:hover{
+    color: #fff !important ;
+}
+.dropdown-menu{
+    left: -106px !important;
+    padding: 0px;
+}
+.dropdown__menu{
+    border: none;
+    width: auto;
+    min-width: 300px;
+    overflow: auto;
+}
+.a__nombre{
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: normal;
+    color: #000;
+}
+.bg__login{
+    background-color:#9C34C2 ;
+}
+.btn__carrito{
+    
+    background-color:#000 ;
+}
+.btn__pagar{
+    background-color:#9C34C2 ;
+}
+.btn__carrito:active{
+    border: none;
+    background-color:#000 ;
+}
+.btn__pagar:active{
+    background-color:#9C34C2 ;
+    border: none;
+}

@@ -5,6 +5,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { ComponentesModule } from '../componentes/componentes.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,12 +18,14 @@ import { ComponentesModule } from '../componentes/componentes.module';
   ],
   imports: [
     CommonModule,
-    ComponentesModule
+    ComponentesModule,
+    SharedModule
   ],exports:[
     InicioComponent,
     ProductosComponent,
     DetalleComponent,
-    PedidosComponent
+    PedidosComponent,
+    
   ]
 })
 export class PagesModule { }
