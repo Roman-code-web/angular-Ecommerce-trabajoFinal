@@ -4,6 +4,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
+import { CardProductosComponent } from './card-productos/card-productos.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,15 +13,18 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
   declarations: [
     SliderComponent,
     CategoriasComponent,
-    AnunciosComponent
+    AnunciosComponent,
+    CardProductosComponent
   ],
   imports: [
     CommonModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    RouterModule
   ],exports:[
     SliderComponent,
     AnunciosComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    CardProductosComponent
   ]
 })
 export class ComponentesModule { }

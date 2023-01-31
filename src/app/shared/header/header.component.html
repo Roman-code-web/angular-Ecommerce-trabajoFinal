@@ -1,7 +1,7 @@
-<header class="container-fluid px-0  mx-0 bg__navbar ">
-    <nav class="navbar navbar-expand-lg px-3">
+<header class="container-fluid px-0  mx-0 bg__navbar fixed-top">
+    <nav class="navbar navbar-expand-lg px-3 ">
         <div class="container-fluid px-0">
-          <a class="navbar-brand fs-2 fw-bold text-light"  href="#"><img style="width: 60px;"src="https://img.icons8.com/arcade/2x/buy.png" alt=""><span class="span__verde"> OFER</span><span class="span__morado">TAS</span></a>
+          <a class="navbar-brand fs-2 fw-bold text-light"  routerLink="/"><img style="width: 60px;"src="https://img.icons8.com/arcade/2x/buy.png" alt=""><span class="span__verde"> OFER</span><span class="span__morado">TAS</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,9 +38,9 @@
                       </div>
                     </ul>
                 </div>
-                <a class="btn nav__link__a "> <i class="fa-solid fa-store pe-2"></i>Productos</a>
-                <a class="btn nav__link__a "> <i class="fa-solid fa-truck-fast pe-2"></i>Mis Pedidos</a>
-                <a class="btn nav__link__a  bg__login "> <i class="fa-solid fa-circle-user pe-2"></i>Iniciar Sesión</a>
+                <a class="btn nav__link__a " routerLink="/productos"> <i class="fa-solid fa-store pe-2"  ></i>Productos</a>
+                <a class="btn nav__link__a " routerLink="/productos"> <i class="fa-solid fa-truck-fast pe-2"></i>Mis Pedidos</a>
+                <a class="btn nav__link__a  bg__login" routerLink="/login"> <i class="fa-solid fa-circle-user pe-2"></i>Iniciar Sesión</a>
             </div>
           </div>
         </div>
