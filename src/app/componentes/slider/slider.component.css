@@ -1,0 +1,31 @@
+.container__botones{
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    bottom: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+.icono{
+    background-color: #9C34C2;
+    color: #fff;
+    font-weight: 800;
+    border-radius: 15px;
+}
+.btn__previous, .btn__next{
+    background-color: transparent;
+    border: none;
+    width: 200px;
+}
+
+.btn__previous{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.btn__next{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}

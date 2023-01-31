@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SliderComponent } from './slider/slider.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
@@ -9,7 +10,8 @@ import { SliderComponent } from './slider/slider.component';
     SliderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SlickCarouselModule
   ],exports:[
     SliderComponent
   ]

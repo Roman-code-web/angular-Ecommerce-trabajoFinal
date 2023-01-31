@@ -1,1 +1,13 @@
-<p>slider works!</p>
+<div class="container-fluid m-0 p-0 overflow-hidden position-relative">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <img src="{{ slide?.img }}" alt="" width="100%">
+        </div>
+    </ngx-slick-carousel>
+    <div class="container__botones">
+
+            <button type="button" class="btn__previous" (click)="prev()" ><i class="fa-solid fa-chevron-left p-2 fs-4 icono"></i></button>
+            <button type="button" class="btn__next" (click)="next()" ><i class="fa-solid fa-angle-right p-2 fs-4 icono"></i></button>
+
+    </div>
+</div>
