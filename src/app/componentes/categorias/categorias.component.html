@@ -1,0 +1,20 @@
+<div class="py-5">
+    <h2 class="text-center fs-2 fw-bold pb-3"><span class="fw-light">Las mejores </span> Categorias <i class="fa-solid fa-heart text-danger"></i></h2>
+    <div class="container-fluid  my-5">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+            
+            <div ngxSlickItem *ngFor="let slide of slides" class="slide ">
+                <a href="" class="nav-link mb-3 mt-1">
+                    <div class="card__categoria mx-3">
+                        <div class="card__categoria-img ">
+                            <img src="{{ slide?.img }}" alt="" class="card__img">
+                        </div>
+                        <div class="card__categoria-body mt-4">
+                            <h5 class="text-center a__texto">{{slide.categoria}}<i class="fa fa-arrow-circle-right ps-2 ocultar"></i></h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</div>
