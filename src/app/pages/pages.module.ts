@@ -11,6 +11,9 @@ import { CrudproductosComponent } from './Admin/crudproductos/crudproductos.comp
 import { CrudusuariosComponent } from './Admin/crudusuarios/crudusuarios.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
+import { LoginComponent } from './login/login.component';
+import { RegistrarComponent } from './registrar/registrar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,14 +28,17 @@ import { MaterialModule } from '../material.module';
     PedidosComponent,
     DashboardComponent,
     CrudproductosComponent,
-    CrudusuariosComponent
+    CrudusuariosComponent,
+    LoginComponent,
+    RegistrarComponent
   ],
   imports: [
     CommonModule,
     ComponentesModule,
     SharedModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],exports:[
     InicioComponent,
     ProductosComponent,
@@ -40,7 +46,9 @@ import { MaterialModule } from '../material.module';
     PedidosComponent,
     DashboardComponent,
     CrudproductosComponent,
-    CrudusuariosComponent
+    CrudusuariosComponent,
+    LoginComponent,
+    RegistrarComponent
   ]
 })
 export class PagesModule { }

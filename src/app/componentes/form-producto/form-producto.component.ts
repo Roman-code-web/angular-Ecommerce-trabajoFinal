@@ -13,8 +13,8 @@ export class FormProductoComponent {
   formRProductos!:FormGroup;
   listaCategoria=[
     {
-      nombreCategoria:'Tecnologia',
-      value:'Tecnologia'
+      nombreCategoria:'Tecnología',
+      value:'Tecnología'
     },
     {
       nombreCategoria:'Hogar',

@@ -7,11 +7,15 @@ import { CrudusuariosComponent } from './pages/Admin/crudusuarios/crudusuarios.c
 import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { LoginComponent } from './pages/login/login.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { RegistrarComponent } from './pages/registrar/registrar.component';
 
 const routes: Routes = [
   { path:'', component:InicioComponent},
+  { path:'login', component:LoginComponent},
+  { path:'registrar', component:RegistrarComponent},
   { path:'productos', component:ProductosComponent},
   { path:'detalle/:id', component:DetalleComponent},
   { path:'pedidos', component:PedidosComponent},

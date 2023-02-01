@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container-fluid pb-5">
     <div class="mb-5">
         <h2 class="text-center fs-2">Nuestros <span class="fw-bold"> Productos</span></h2>
     </div>
-    <div class="row mb-3">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="card card__shadow">
-                <a routerLink="" class="nav-link">  
+    <div class="row d-flex justify-content-center mb-3">
+        <div class="col-md-4 col-sm-6 col-xs-12 mb-5" *ngFor="let producto of listaProductos">
+            <div class="card card__div">
+                <a  [routerLink]="['detalle/', producto.id]" class="nav-link ">  
                     <div class="card__img">
-                        <img src="https://home.ripley.com.pe/Attachment/WOP_5/2065306644400/2065306644400_2.jpg" class="img py-3" alt="...">
-                        <p class="p__estado bg-danger px-3">Nuevo</p>
-                        <p class="p__categoria px-3">Categoria</p>
+                        <img src="{{producto.imagen}}" class="img py-3" alt="...">
+                        <p class="p__estado px-3" [ngClass]="{'bg-danger': producto.estado=='Nuevo' ,'bg-primary':producto.estado=='Recomendado'}" >{{producto.estado}}</p>
+                        <p class="p__categoria px-3">{{producto.categoria}}</p>
                     </div>
                 </a>
                 <div class="card-body">
                     <div class="container">
-                        <p class="text-center">SAMSUNG</p>
-                    <a routerLink="" class="nav-link"> <h6 class="card-title text-center">CELULAR SAMSUNG GALAXY A04E 6.5" 3GB 64GB 13MP + 2MP NEGRO</h6></a>
+                        <p class="text-center">{{producto.marca}}</p>
+                    <a [routerLink]="['detalle/', producto.id]" class="nav-link a__link text-center" > {{producto.nombre}}</a>
                     </div>
                   <div class="container d-flex justify-content-between py-3">
-                    <p class="fw-bold p__precio">S/. 700.00</p>
-                    <p class="fw-bold p__oferta">S/. 650.00</p>
+                    <p class="fw-bold p__precio" [ngClass]="{'text-danger text-decoration-line-through': producto.oferta!=0}">{{producto.costoUnitario | currency:"S/."}}</p>
+                    <p class="fw-bold p__oferta" >{{producto.oferta | currency:"S/."}}</p>
                   </div>
                   <div class="container d-flex justify-content-center">
-                    <a href="#" class="btn btn__carrito fw-bold"><i class="fa-solid fa-cart-plus pe-2"></i> Añadir a Carrito</a>
+                    <button href="#" class="btn__carrito fw-bold w-100" (click)="agregarACarrito()" > <i class="fa-solid fa-cart-plus pe-2"></i> Añadir a Carrito</button>
                   </div>
                 </div>
             </div>
