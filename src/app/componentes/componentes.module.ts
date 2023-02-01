@@ -14,6 +14,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from '../pages/Admin/dashboard/dashboard.component';
+import { FormProductoComponent } from './form-producto/form-producto.component';
+import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 
 
 
@@ -25,6 +29,8 @@ import { DashboardComponent } from '../pages/Admin/dashboard/dashboard.component
     AnunciosComponent,
     CardProductosComponent,
     NavigationComponent,
+    FormProductoComponent,
+    TablaProductosComponent,
   ],
   imports: [
     CommonModule,
@@ -36,13 +42,16 @@ import { DashboardComponent } from '../pages/Admin/dashboard/dashboard.component
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],exports:[
     SliderComponent,
     AnunciosComponent,
     CategoriasComponent,
     CardProductosComponent,
-    NavigationComponent
+    NavigationComponent,
+    FormProductoComponent,
   ]
 })
 export class ComponentesModule { }

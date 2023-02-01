@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
+import { TablaProductosComponent } from './componentes/tabla-productos/tabla-productos.component';
 import { CrudproductosComponent } from './pages/Admin/crudproductos/crudproductos.component';
 import { CrudusuariosComponent } from './pages/Admin/crudusuarios/crudusuarios.component';
 import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
@@ -15,12 +17,16 @@ const routes: Routes = [
   { path:'pedidos', component:PedidosComponent},
   //--------
   {path:'dashboard', component: DashboardComponent,
-  children:[
-    { path:'crudproductos', component:CrudproductosComponent},
-    { path:'crudusuarios', component:CrudusuariosComponent},
-    
-  ]
-  },
+    children:[
+      { path:'productos', component:CrudproductosComponent,
+      children:[
+        {path:'', component:TablaProductosComponent},
+        { path:'nuevoProducto', component:FormProductoComponent},
+      ]
+      },
+      { path:'usuarios', component:CrudusuariosComponent},
+      
+    ]},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 

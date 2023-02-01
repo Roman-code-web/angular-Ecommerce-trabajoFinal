@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { CrudproductosComponent } from './Admin/crudproductos/crudproductos.component';
 import { CrudusuariosComponent } from './Admin/crudusuarios/crudusuarios.component';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -29,6 +31,8 @@ import { CrudusuariosComponent } from './Admin/crudusuarios/crudusuarios.compone
     CommonModule,
     ComponentesModule,
     SharedModule,
+    RouterModule,
+    MaterialModule
   ],exports:[
     InicioComponent,
     ProductosComponent,
