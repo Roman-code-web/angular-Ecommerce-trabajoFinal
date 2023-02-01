@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/servicios/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private loginservice : LoginService , private router: Router){}
+  logout(){
+    this.loginservice.logout()
+    .then(
+      res=>{
+        console.log(res);
+        this.router.navigate(['/']);
+      }
+    )
+    .catch(
+      error=>{
+        console.log(error);
+      }
+    )
+  }
 }

@@ -44,7 +44,7 @@
                         <button mat-raised-button color="primary" [disabled]="formLogin.invalid" (click)="login()" class="w-100" >Ingresar</button>
                     </div>
                     <div class="mt-4 mb-4">
-                        <button mat-raised-button class="w-100 fw-bold">Ingresar con Google <img src="https://img.icons8.com/fluency/256/google-logo.png" style="width: 30px;" alt=""></button>
+                        <button mat-raised-button class="w-100 fw-bold" (click)="loginGoogle()">Ingresar con Google <img src="https://img.icons8.com/fluency/256/google-logo.png" style="width: 30px;" alt=""></button>
                     </div> 
                     <div class="my-5">
                         <p class="text-center">¿No tienes una cuenta ? Ir a <a class="btn btn-outline-primary  ps-3" routerLink="/registrar">Registrar</a></p>
