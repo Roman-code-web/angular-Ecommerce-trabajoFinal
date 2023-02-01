@@ -1,0 +1,67 @@
+<div class="container">
+    <!---titulo--->
+    <h1 mat-dialog-title class="text-center fs-4 py-3">Agregar al Carrito</h1>
+    <!---content--->
+    <div mat-dialog-content class="pb-0 mb-0 w-100">
+        <form [formGroup]="formcarrito">
+            <div class="row">
+                <!------detalle----------------------------->
+                <div class="col-md-9 col-sm-9 col-xs-9">
+                    <div class="row d-flex justify-content-center">
+                        <!------nombre----------------------------->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="mb-3">
+                                <p class="text-dark">Nombre Producto</p>
+                                <p>{{data.nombre}}</p>
+                            </div>
+                        </div>
+                        <!------costo----------------------------->
+                        <div class="col-md-3 col-sm-4 col-xs-4">
+                            <div class="mb-3">
+                                <p class="text-dark">Costo</p>
+                            </div>
+                            <div class="">
+                                <p>{{data.costo}}</p>
+                            </div>
+                        </div>
+                        <!------oferta----------------------------->
+                        <div class="col-md-3 col-sm-4 col-xs-4">
+                            <div class="mb-3">
+                                <p class="text-dark">Oferta</p>
+                            </div>
+                            <div class="">
+                                <p>{{data.oferta}}</p>
+                            </div>
+                        </div>
+                    
+                        <!------cantidad----------------------------->
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="mb-3">
+                                <p class="text-dark">Cantidad</p>
+                            </div>
+                            <div class="">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Cantidad</mat-label>
+                                    <input type="number" matInput formControlName="cantidad" >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!----------imagen--------------------->
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="">
+                        <img  src="{{data.imagen}}" style="width: 100px;">
+                    </div>
+                   
+                </div>
+
+            </div>
+        </form>    
+    </div>
+    <!------Botones-------->
+    <div mat-dialog-actions class="container d-flex gap-4 justify-content-center mb-3">
+        <button mat-button mat-dialog-close="true" [disabled]="formcarrito.invalid" mat-raised-button color="accent" (click)="agregarcarrito()" >Guardar</button>
+        <button mat-button mat-dialog-close="true" >Cerrar</button>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-proyectofinal": {
+      "hosting": {
+        "Ecommerce-trabajoFinal": [
+          "aroman-ecommerce"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-proyectofinal"
+  }
+}

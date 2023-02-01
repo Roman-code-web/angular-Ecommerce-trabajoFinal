@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialog} from '@angular/material/dialog';
 import { ProductoService } from 'src/app/servicios/productos/producto.service';
+import { DialogCarritoComponent } from '../dialog-carrito/dialog-carrito.component';
 
 @Component({
   selector: 'app-card-productos',
@@ -10,10 +11,14 @@ import { ProductoService } from 'src/app/servicios/productos/producto.service';
 export class CardProductosComponent implements OnInit {
 
   listaProductos:any=[];
-  constructor(private productoservice:ProductoService){}
+  constructor(private productoservice:ProductoService, private matdialog : MatDialog, ){}
 
   ngOnInit(): void {
     this.getProductos();
+    if(!localStorage.getItem('carrito')){
+      localStorage.setItem('carrito','[]') ;
+    }
+    
   }
   async getProductos(){
     try {
@@ -30,7 +35,10 @@ export class CardProductosComponent implements OnInit {
     }
    
   }
-  agregarACarrito(){
-    
+  openDialogCarrito(i:number){
+    //abro el componente
+    this.matdialog.open(DialogCarritoComponent,{data:
+      {id:this.listaProductos[i]?.id, nombre:this.listaProductos[i]?.nombre,imagen:this.listaProductos[i]?.imagen, costo:this.listaProductos[i]?.costoUnitario, oferta:this.listaProductos[i]?.oferta}
+    })
   }
 }

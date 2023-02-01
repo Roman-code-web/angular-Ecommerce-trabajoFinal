@@ -3,7 +3,7 @@
         <h2 class="text-center fs-2">Nuestros <span class="fw-bold"> Productos</span></h2>
     </div>
     <div class="row d-flex justify-content-center mb-3">
-        <div class="col-md-4 col-sm-6 col-xs-12 mb-5" *ngFor="let producto of listaProductos">
+        <div class="col-md-4 col-sm-6 col-xs-12 mb-5" *ngFor="let producto of listaProductos , index as i ">
             <div class="card card__div">
                 <a  [routerLink]="['detalle/', producto.id]" class="nav-link ">  
                     <div class="card__img">
@@ -22,7 +22,7 @@
                     <p class="fw-bold p__oferta" >{{producto.oferta | currency:"S/."}}</p>
                   </div>
                   <div class="container d-flex justify-content-center">
-                    <button href="#" class="btn__carrito fw-bold w-100" (click)="agregarACarrito()" > <i class="fa-solid fa-cart-plus pe-2"></i> Añadir a Carrito</button>
+                    <button  class="btn__carrito fw-bold w-100" (click)="openDialogCarrito(i)" > <i class="fa-solid fa-cart-plus pe-2"></i> Añadir a Carrito</button>
                   </div>
                 </div>
             </div>

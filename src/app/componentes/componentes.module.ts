@@ -18,6 +18,7 @@ import { FormProductoComponent } from './form-producto/form-producto.component';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
+import { DialogCarritoComponent } from './dialog-carrito/dialog-carrito.component';
 
 
 
@@ -31,6 +32,7 @@ import { TablaProductosComponent } from './tabla-productos/tabla-productos.compo
     NavigationComponent,
     FormProductoComponent,
     TablaProductosComponent,
+    DialogCarritoComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { TablaProductosComponent } from './tabla-productos/tabla-productos.compo
     CardProductosComponent,
     NavigationComponent,
     FormProductoComponent,
+    DialogCarritoComponent,
   ]
 })
 export class ComponentesModule { }
