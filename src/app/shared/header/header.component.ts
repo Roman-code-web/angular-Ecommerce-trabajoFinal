@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/servicios/login/login.service';
 })
 export class HeaderComponent {
 
-  constructor(private loginservice : LoginService , private router: Router , public carritoservice:CarritoService){
+  constructor(public loginservice : LoginService , private router: Router , public carritoservice:CarritoService){
    
   }
   

@@ -14,6 +14,7 @@ import { MaterialModule } from '../material.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { share } from 'rxjs';
 
 
 
@@ -48,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CrudproductosComponent,
     CrudusuariosComponent,
     LoginComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    SharedModule
   ]
 })
 export class PagesModule { }

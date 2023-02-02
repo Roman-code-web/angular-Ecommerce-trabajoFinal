@@ -39,15 +39,23 @@ export class LoginComponent {
     .then(
       res=>{
             localStorage.setItem('user',JSON.stringify({'uid': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL,'rol':'user' }));
-            this.usuarioservice.agregarUsuario({'uid': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL ,'rol':'user' })
-            this.router.navigate(['/']);
+            this.usuarioservice.agregarUsuario({'id': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL ,'rol':'user' })
+            .then(
+              resp=>{
+                this.router.navigate(['/']);
+              }
+            ).catch(
+              error=>{
+                console.log(error);
+              }
+            )
           }
     )
     .catch(
       error=> {
         Swal.fire({
           icon: 'error',
-          title: 'usuario y contraseña incorrecta',
+          title: 'usuario o contraseña incorrecta',
         })
       }
       
@@ -59,16 +67,19 @@ export class LoginComponent {
     this.loginservice.loginGoogle()
     .then(
       res=>{
+        console.log(res);
             //user autenticacion
             localStorage.setItem('user',JSON.stringify({'uid': res?.user.uid , 'email':res.user?.email, 'photoURL':res.user?.photoURL,'rol':'user' }));
-            this.usuarioservice.agregarUsuario({id: res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL ,'rol':'user' })
+            this.usuarioservice.agregarUsuario({'id': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL ,'rol':'user' })
             .then(
-              res=>{
-                //user registro coleccion
-                localStorage.setItem('userid',JSON.stringify({'id': res?.id , 'rol':'user' }));
+              resp=>{
+                this.router.navigate(['/']);
+              }
+            ).catch(
+              error=>{
+                console.log(error);
               }
             )
-            this.router.navigate(['/']);
       }
     )
     .catch(

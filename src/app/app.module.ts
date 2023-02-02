@@ -10,6 +10,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { PagesModule } from './pages/pages.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     PagesModule,
+    SharedModule,
     ComponentesModule,
     BrowserAnimationsModule
   ],

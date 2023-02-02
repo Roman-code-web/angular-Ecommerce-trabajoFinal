@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardProductosComponent } from './componentes/card-productos/card-productos.component';
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
 import { TablaProductosComponent } from './componentes/tabla-productos/tabla-productos.component';
+import { LoginGuard } from './guard/login/login.guard';
+import { PedidosGuard } from './guard/pedidos/pedidos.guard';
 import { CrudproductosComponent } from './pages/Admin/crudproductos/crudproductos.component';
 import { CrudusuariosComponent } from './pages/Admin/crudusuarios/crudusuarios.component';
 import { DashboardComponent } from './pages/Admin/dashboard/dashboard.component';
@@ -15,16 +17,15 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 
 const routes: Routes = [
   { path:'', component:InicioComponent},
-  { path:'login', component:LoginComponent},
-  { path:'registrar', component:RegistrarComponent},
+  { path:'login', component:LoginComponent, canActivate:[LoginGuard]},
+  { path:'registrar', component:RegistrarComponent, canActivate:[LoginGuard]},
   { path:'productos', component:ProductosComponent,
-  children:[
-    {path:'', component:CardProductosComponent},
-    { path:'detalle/:id', component:DetalleComponent},
-  ]
+    children:[
+      {path:'', component:CardProductosComponent},
+      { path:'detalle/:id', component:DetalleComponent},
+    ]
   },
-  
-  { path:'pedidos', component:PedidosComponent},
+  { path:'pedidos', component:PedidosComponent, canActivate:[PedidosGuard]},
   //--------
   {path:'dashboard', component: DashboardComponent,
     children:[

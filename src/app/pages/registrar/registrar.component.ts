@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/servicios/login/login.service';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 
 @Component({
   selector: 'app-registrar',
@@ -13,7 +16,7 @@ export class RegistrarComponent {
   }
 
   formRegistrar!:FormGroup;
-  constructor(private frmb: FormBuilder){
+  constructor(private frmb: FormBuilder, private loginservice:LoginService , private router:Router){
     this.formRegistrar=frmb.group({
       email:['',
       [
@@ -29,7 +32,18 @@ export class RegistrarComponent {
     });
   }
   registrar(){
-    console.log(this.formRegistrar.value)
+    this.loginservice.registrarUsuario(this.formRegistrar.value)
+    .then(
+      res=>{
+        console.log(res);
+        this.router.navigate(['/login']);
+      }
+    )
+    .catch(
+      error=>{
+        console.log(error);
+      }
+    )
   }
   //validacion formulario
   validacion(name: string) {

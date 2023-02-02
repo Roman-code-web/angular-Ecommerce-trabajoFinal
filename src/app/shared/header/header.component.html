@@ -52,11 +52,11 @@
                     </ul>
               </div>
               <!---------------login--------------->
-              <a class="btn nav__link__a  bg__login" routerLink="/login"> <i class="fa-solid fa-circle-user pe-2"></i>Iniciar Sesión</a>  
+              <a class="btn nav__link__a  bg__login" routerLink="/login" *ngIf="!loginservice.islogeado()"> <i class="fa-solid fa-circle-user pe-2"></i>Iniciar Sesión</a>  
               <!---------------Mis pedidos--------------->  
-              <!--- <a class="btn nav__link__a " routerLink="/productos"> <i class="fa-solid fa-truck-fast pe-2"></i>Mis Pedidos</a>----> 
+               <a class="btn nav__link__a " routerLink="/pedidos" *ngIf="loginservice.islogeado()" > <i class="fa-solid fa-truck-fast pe-2"></i>Mis Pedidos</a>
                 
-                <a class="btn nav__link__a  bg__login" (click)="logout()" > <i class="fa-solid fa-circle-user pe-2"  ></i>Logout</a>
+                <a class="btn nav__link__a  bg__login"  *ngIf="loginservice.islogeado()" (click)="logout()" > <i class="fa-solid fa-circle-user pe-2"  ></i>Logout</a>
             </div>
           </div>
         </div>
