@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 
 @Component({
   selector: 'app-dialog-carrito',
@@ -11,7 +13,7 @@ export class DialogCarritoComponent implements OnInit {
   formcarrito!:FormGroup;
   carrito:any=[]=[];
   total!:number;
-    constructor( @Inject(MAT_DIALOG_DATA) public data:{id:string, nombre:string,imagen:string, costo:string, oferta:string} , private formPreguntaBuilder:FormBuilder){
+    constructor( @Inject(MAT_DIALOG_DATA) public data:{id:string, nombre:string,imagen:string, costo:string, oferta:string} , private formPreguntaBuilder:FormBuilder , private carritoservice: CarritoService){
       this.formcarrito=formPreguntaBuilder.group({
         cantidad:['',
         [
@@ -56,7 +58,7 @@ export class DialogCarritoComponent implements OnInit {
           localStorage.setItem('carrito',JSON.stringify(this.carrito));
         }
         
-        
+        this.carritoservice.listaItemCarritos=JSON.parse(String(localStorage.getItem('carrito')));
     }
     calculototal(){
       if(this.formcarrito.get('cantidad')?.valid && this.formcarrito.get('cantidad')?.value!=0){

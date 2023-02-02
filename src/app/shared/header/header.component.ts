@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { LoginService } from 'src/app/servicios/login/login.service';
 
 @Component({
@@ -9,7 +10,12 @@ import { LoginService } from 'src/app/servicios/login/login.service';
 })
 export class HeaderComponent {
 
-  constructor(private loginservice : LoginService , private router: Router){}
+  constructor(private loginservice : LoginService , private router: Router , public carritoservice:CarritoService){
+   
+  }
+  
+  
+  
   logout(){
     this.loginservice.logout()
     .then(

@@ -15,21 +15,30 @@
                     <!------carrito container----->
                     <ul class="dropdown-menu dropdown__menu rounded-0">
                         <!------producto items------>
-                      <div class="container d-flex gap-2 py-4 px-3">
-                        <!-----img---->
-                        <div>
-                            <img style="width: 50px;" src="https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/42736955-TflGnmgE.jpg" alt="">
-                        </div>
-                        <!-------nombre--->
-                        <div class="container">
-                            <div>
-                                <a  class="a__nombre">Smartphone Galaxy A33 128Gb 6Gb Single Sim Negro - SMARTPHONES</a>
-                            </div>
-                            <div>
-                                    <p class="a__nombre mb-0 fw-bold py-1">cantidad : 2</p>
-                            </div>
+                      <div *ngIf="carritoservice.listaItemCarritos.length > 0  else noItems " >
+                        <div class="container d-flex gap-2 py-2 px-3" *ngFor="let itemCarrito of carritoservice.listaItemCarritos">
+                          <!-----img---->
+                          <div>
+                              <img style="width: 70px;" src="{{itemCarrito.imagen}}" alt="">
+                          </div>
+                          <!-------nombre--->
+                          <div class="container">
+                              <div>
+                                  <a  class="a__nombre">{{itemCarrito.nombre}}</a>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                      <p class="a__nombre mb-0 fw-bold py-1">{{itemCarrito.cantidad}}</p>
+                                      <p class="a__nombre text-primary mb-0 fw-bold py-1">{{itemCarrito.total | currency:'S/.'}}</p>
+                              </div>
+                          </div>
                         </div>
                       </div>
+                      <ng-template #noItems>
+                        <div class="container py-4 px-2">
+                          <p class="text-center fw-bold text-primary">No hay productos en el carrito</p>
+                          <p class="text-center fw-bold">Empieza a Comprar Ahora!!</p>
+                        </div>
+                      </ng-template>
                       <div class="container-fluid px-0">
                         <div class="d-flex w-100">
                             <button class="btn btn__carrito fw-bold text-light rounded-0 w-50">Ver Carrito <i class="fa-solid fa-eye"></i></button>
@@ -46,4 +55,5 @@
           </div>
         </div>
       </nav>
+
 </header>
