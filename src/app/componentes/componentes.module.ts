@@ -19,6 +19,7 @@ import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 import { DialogCarritoComponent } from './dialog-carrito/dialog-carrito.component';
+import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.component';
 
 
 
@@ -33,6 +34,7 @@ import { DialogCarritoComponent } from './dialog-carrito/dialog-carrito.componen
     FormProductoComponent,
     TablaProductosComponent,
     DialogCarritoComponent,
+    TablaUsuariosComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { DialogCarritoComponent } from './dialog-carrito/dialog-carrito.componen
     FormProductoComponent,
     TablaProductosComponent,
     DialogCarritoComponent,
+    TablaUsuariosComponent,
   ]
 })
 export class ComponentesModule { }

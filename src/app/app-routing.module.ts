@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardProductosComponent } from './componentes/card-productos/card-productos.component';
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
 import { TablaProductosComponent } from './componentes/tabla-productos/tabla-productos.component';
+import { TablaUsuariosComponent } from './componentes/tabla-usuarios/tabla-usuarios.component';
 import { LoginGuard } from './guard/login/login.guard';
 import { PagarGuard } from './guard/pagar/pagar.guard';
 import { PedidosGuard } from './guard/pedidos/pedidos.guard';
@@ -24,21 +25,26 @@ const routes: Routes = [
   { path:'productos', component:ProductosComponent,
     children:[
       {path:'', component:CardProductosComponent},
-      { path:'detalle/:id', component:DetalleComponent},
+      {path:'detalle/:id', component:DetalleComponent},
     ]
   },
   {path:'pagar', component:PagoComponent, canActivate:[PagarGuard]},
   { path:'pedidos', component:PedidosComponent, canActivate:[PedidosGuard]},
-  //--------
+  //--------admin---------------------------------------------------
   {path:'dashboard', component: DashboardComponent,
     children:[
       { path:'productos', component:CrudproductosComponent,
       children:[
         {path:'', component:TablaProductosComponent},
-        { path:'nuevoProducto', component:FormProductoComponent},
+        {path:'nuevoProducto', component:FormProductoComponent},
       ]
       },
-      { path:'usuarios', component:CrudusuariosComponent},
+      { path:'usuarios', component:CrudusuariosComponent,
+      children:[
+        {path:'', component:TablaUsuariosComponent},
+        {path:'nuevoUsuario', component:FormProductoComponent},
+      ]
+      },
       
     ]},
   { path: '**', pathMatch: 'full', redirectTo: '' },
