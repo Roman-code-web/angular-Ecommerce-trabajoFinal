@@ -15,7 +15,7 @@
                     <!------carrito container----->
                     <ul class="dropdown-menu dropdown__menu rounded-0">
                         <!------producto items------>
-                      <div *ngIf="carritoservice.listaItemCarritos.length > 0  else noItems " >
+                      <div *ngIf="carritoservice.listaItemCarritos.length > 0  else noItems " style="min-height: 150px; max-height: 300px; overflow: auto;">
                         <div class="container d-flex gap-2 py-2 px-3" *ngFor="let itemCarrito of carritoservice.listaItemCarritos">
                           <!-----img---->
                           <div>
