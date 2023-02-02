@@ -15,6 +15,9 @@
     justify-content: center;
     margin: auto;
 }
+.a__router{
+    cursor: pointer;
+}
 .a__link{
     font-weight: 600;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardProductosComponent } from './componentes/card-productos/card-productos.component';
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
 import { TablaProductosComponent } from './componentes/tabla-productos/tabla-productos.component';
 import { CrudproductosComponent } from './pages/Admin/crudproductos/crudproductos.component';
@@ -16,8 +17,13 @@ const routes: Routes = [
   { path:'', component:InicioComponent},
   { path:'login', component:LoginComponent},
   { path:'registrar', component:RegistrarComponent},
-  { path:'productos', component:ProductosComponent},
-  { path:'detalle/:id', component:DetalleComponent},
+  { path:'productos', component:ProductosComponent,
+  children:[
+    {path:'', component:CardProductosComponent},
+    { path:'detalle/:id', component:DetalleComponent},
+  ]
+  },
+  
   { path:'pedidos', component:PedidosComponent},
   //--------
   {path:'dashboard', component: DashboardComponent,

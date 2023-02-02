@@ -1,5 +1,7 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ProductoService } from 'src/app/servicios/productos/producto.service';
 import { DialogCarritoComponent } from '../dialog-carrito/dialog-carrito.component';
 
@@ -11,14 +13,10 @@ import { DialogCarritoComponent } from '../dialog-carrito/dialog-carrito.compone
 export class CardProductosComponent implements OnInit {
 
   listaProductos:any=[];
-  constructor(private productoservice:ProductoService, private matdialog : MatDialog, ){}
+  constructor(private productoservice:ProductoService, private matdialog : MatDialog, private router  :Router ){}
 
   ngOnInit(): void {
-    this.getProductos();
-    if(!localStorage.getItem('carrito')){
-      localStorage.setItem('carrito','[]') ;
-    }
-    
+    this.getProductos();  
   }
   async getProductos(){
     try {
@@ -40,5 +38,8 @@ export class CardProductosComponent implements OnInit {
     this.matdialog.open(DialogCarritoComponent,{data:
       {id:this.listaProductos[i]?.id, nombre:this.listaProductos[i]?.nombre,imagen:this.listaProductos[i]?.imagen, costo:this.listaProductos[i]?.costoUnitario, oferta:this.listaProductos[i]?.oferta}
     })
+  }
+  irRuta(id:string){
+    this.router.navigate([`productos/detalle/${id}`]);
   }
 }

@@ -5,7 +5,7 @@
     <div class="row d-flex justify-content-center mb-3">
         <div class="col-md-4 col-sm-6 col-xs-12 mb-5" *ngFor="let producto of listaProductos , index as i ">
             <div class="card card__div">
-                <a  [routerLink]="['detalle/', producto.id]" class="nav-link ">  
+                <a  (click)="irRuta(producto.id)" class="nav-link a__router " >  
                     <div class="card__img">
                         <img src="{{producto.imagen}}" class="img py-3" alt="...">
                         <p class="p__estado px-3" [ngClass]="{'bg-danger': producto.estado=='Nuevo' ,'bg-primary':producto.estado=='Recomendado'}" >{{producto.estado}}</p>
@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="container">
                         <p class="text-center">{{producto.marca}}</p>
-                    <a [routerLink]="['detalle/', producto.id]" class="nav-link a__link text-center" > {{producto.nombre}}</a>
+                    <a (click)="irRuta(producto.id)" class="nav-link a__link text-center a__router" > {{producto.nombre}}</a>
                     </div>
                   <div class="container d-flex justify-content-between py-3">
                     <p class="fw-bold p__precio" [ngClass]="{'text-danger text-decoration-line-through': producto.oferta!=0}">{{producto.costoUnitario | currency:"S/."}}</p>

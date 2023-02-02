@@ -49,11 +49,12 @@ import { DialogCarritoComponent } from './dialog-carrito/dialog-carrito.componen
     ReactiveFormsModule
   ],exports:[
     SliderComponent,
-    AnunciosComponent,
     CategoriasComponent,
+    AnunciosComponent,
     CardProductosComponent,
     NavigationComponent,
     FormProductoComponent,
+    TablaProductosComponent,
     DialogCarritoComponent,
   ]
 })
