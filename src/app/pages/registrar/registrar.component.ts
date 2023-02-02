@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/servicios/login/login.service';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar',
@@ -16,7 +17,7 @@ export class RegistrarComponent {
   }
 
   formRegistrar!:FormGroup;
-  constructor(private frmb: FormBuilder, private loginservice:LoginService , private router:Router){
+  constructor(private frmb: FormBuilder, private loginservice:LoginService , private usuarioservice: UsuarioService , private router:Router){
     this.formRegistrar=frmb.group({
       email:['',
       [
@@ -36,12 +37,24 @@ export class RegistrarComponent {
     .then(
       res=>{
         console.log(res);
-        this.router.navigate(['/login']);
+        this.usuarioservice.agregarUsuario({'id': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL , 'rol':'user'})
+            .then(
+              resp=>{
+                this.router.navigate(['/login']);
+              }
+            ).catch(
+              error=>{
+                console.log(error);
+              }
+            )
       }
     )
     .catch(
       error=>{
-        console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'El email ya esta en registrado',
+        })
       }
     )
   }

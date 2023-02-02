@@ -8,7 +8,7 @@ import { addDoc, collection, doc } from '@firebase/firestore';
 })
 export class ProductoService {
 
-  constructor( private firestore:Firestore, ) { }
+  constructor( private firestore:Firestore ) { }
   //funciones
 
   agregarProducto(producto:Producto){

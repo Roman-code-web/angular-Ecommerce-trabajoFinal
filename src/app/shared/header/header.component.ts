@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario/usuario';
 import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { LoginService } from 'src/app/servicios/login/login.service';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +11,9 @@ import { LoginService } from 'src/app/servicios/login/login.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-  constructor(public loginservice : LoginService , private router: Router , public carritoservice:CarritoService){
-   
+  rol!:string;
+  constructor(public loginservice : LoginService , private router: Router , public carritoservice:CarritoService ){
   }
-  
-  
   
   logout(){
     this.loginservice.logout()

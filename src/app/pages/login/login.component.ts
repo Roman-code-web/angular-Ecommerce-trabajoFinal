@@ -38,17 +38,8 @@ export class LoginComponent {
     this.loginservice.loginUsuario(this.formLogin.value)//envio datos del formulario
     .then(
       res=>{
-            localStorage.setItem('user',JSON.stringify({'uid': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL,'rol':'user' }));
-            this.usuarioservice.agregarUsuario({'id': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL ,'rol':'user' })
-            .then(
-              resp=>{
-                this.router.navigate(['/']);
-              }
-            ).catch(
-              error=>{
-                console.log(error);
-              }
-            )
+            localStorage.setItem('user',JSON.stringify({'uid': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL }));
+            this.router.navigate(['/']);
           }
     )
     .catch(
