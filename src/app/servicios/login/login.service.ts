@@ -7,7 +7,8 @@ import { signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
 export class LoginService {
   usuario:any=[];
   logeado=false;
-  constructor(private auth : Auth  ) { }
+  constructor(private auth : Auth  ) {
+   }
   //funcion registrar
   registrarUsuario({ email, password}:any){ 
     return createUserWithEmailAndPassword(this.auth,email,password);

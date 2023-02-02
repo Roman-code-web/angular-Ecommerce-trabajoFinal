@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { share } from 'rxjs';
+import { PagoComponent } from './pago/pago.component';
 
 
 
@@ -31,7 +32,8 @@ import { share } from 'rxjs';
     CrudproductosComponent,
     CrudusuariosComponent,
     LoginComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    PagoComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { share } from 'rxjs';
     CrudusuariosComponent,
     LoginComponent,
     RegistrarComponent,
-    SharedModule
+    SharedModule,
+    PagoComponent
   ]
 })
 export class PagesModule { }

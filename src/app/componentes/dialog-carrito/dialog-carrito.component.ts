@@ -49,12 +49,12 @@ export class DialogCarritoComponent implements OnInit {
               }
             })
           }else if(res==undefined){
-            this.carrito.push({'idpro':this.data?.id , 'nombre':this.data?.nombre, 'imagen':this.data?.imagen,'costo':this.data?.costo, 'oferta':this.data?.oferta, 'cantidad':this.formcarrito.get('cantidad')?.value, 'total':this.total});
+            this.carrito.push({'idpro':this.data?.id , 'nombre':this.data?.nombre, 'imagen':this.data?.imagen,'costoUnitario':this.data?.costo, 'oferta':this.data?.oferta, 'cantidad':this.formcarrito.get('cantidad')?.value, 'total':this.total});
             localStorage.setItem('carrito',JSON.stringify(this.carrito));
           }
        
         }else{
-          this.carrito.push({'idpro':this.data?.id , 'nombre':this.data?.nombre, 'imagen':this.data?.imagen,'costo':this.data?.costo, 'oferta':this.data?.oferta, 'cantidad':this.formcarrito.get('cantidad')?.value, 'total':this.total});
+          this.carrito.push({'idpro':this.data?.id , 'nombre':this.data?.nombre, 'imagen':this.data?.imagen,'costoUnitario':this.data?.costo, 'oferta':this.data?.oferta, 'cantidad':this.formcarrito.get('cantidad')?.value, 'total':this.total});
           localStorage.setItem('carrito',JSON.stringify(this.carrito));
         }
         
