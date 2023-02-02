@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, getDoc, setDoc } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, getDoc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario/usuario';
 
@@ -23,5 +23,8 @@ export class UsuarioService {
     const usuarioRef = doc(this.firestore, `usuarios/${usuario.id}`)
     return deleteDoc(usuarioRef);
   } 
-  
+  obtenerRolporID(id:string){
+    const usuarioRef = doc(this.firestore, `usuarios/${id}`);
+    return docData(usuarioRef, { idField: 'id' }) as Observable<Usuario>;
+  }
 }

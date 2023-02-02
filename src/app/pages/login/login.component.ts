@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { LoginService } from 'src/app/servicios/login/login.service';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 import Swal from 'sweetalert2';
@@ -40,6 +41,7 @@ export class LoginComponent {
       res=>{
             localStorage.setItem('user',JSON.stringify({'uid': res?.user.uid , 'email':res.user.email, 'photoURL':res.user?.photoURL }));
             this.router.navigate(['/']);
+           
           }
     )
     .catch(
@@ -51,9 +53,8 @@ export class LoginComponent {
       }
       
     )
-    console.log(this.formLogin.value)
   }
-
+  //login con google
   loginGoogle(){
     this.loginservice.loginGoogle()
     .then(

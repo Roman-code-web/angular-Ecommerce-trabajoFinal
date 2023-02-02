@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario/usuario';
 import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
@@ -11,15 +11,21 @@ import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  rol!:string;
-  constructor(public loginservice : LoginService , private router: Router , public carritoservice:CarritoService ){
+  constructor(public loginservice : LoginService , private router: Router , public carritoservice:CarritoService , public usuarioservice :UsuarioService){
+    loginservice.estado().subscribe(
+      res=>{
+        if(res){
+          this.obtenerporRol(res?.uid);
+        }else{
+        }
+      }
+    )
   }
-  
+
   logout(){
     this.loginservice.logout()
     .then(
       res=>{
-        console.log(res);
         this.router.navigate(['/']);
       }
     )
@@ -28,5 +34,14 @@ export class HeaderComponent {
         console.log(error);
       }
     )
+  }
+
+ async obtenerporRol(id:string){
+    this.usuarioservice.obtenerRolporID(id).subscribe(
+      res => {
+      this.usuarioservice.rol = res.rol;
+      localStorage.setItem('rol',JSON.stringify({'rol':res.rol}));
+      }
+    );
   }
 }

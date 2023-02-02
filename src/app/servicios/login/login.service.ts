@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Auth , createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth , authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { signInWithPopup, GoogleAuthProvider } from '@angular/fire/auth';
+import { UsuarioService } from '../usuario/usuario.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   usuario:any=[];
   logeado=false;
-  rol!:string;
   constructor(private auth : Auth  ) {
    }
   //funcion registrar
@@ -27,10 +27,9 @@ export class LoginService {
   //funcion logout
   logout(){
     localStorage.removeItem('user');
-    localStorage.removeItem('userid');
+    localStorage.removeItem('rol');
     return signOut(this.auth);
   }
-
   islogeado(){
     if(localStorage.getItem('user')){
       this.usuario=JSON.parse(String(localStorage.getItem('user')) );
@@ -41,5 +40,8 @@ export class LoginService {
       return false;
     }
   }
-
+ 
+  estado(){
+    return authState(this.auth);
+  }
 }

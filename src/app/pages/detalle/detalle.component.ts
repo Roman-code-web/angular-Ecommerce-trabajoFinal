@@ -19,7 +19,6 @@ export class DetalleComponent {
   }
 
 getDetalle(){
-  let producto;
   this.productoservice.obtenerProductoporID(this.id)
   .then(
     res=>{
@@ -27,7 +26,6 @@ getDetalle(){
         id: res.id,
         ...(res.data() as Producto),
       };
-      //console.log(this.producto.nombre)
     },
     error=>{
       console.log(error);

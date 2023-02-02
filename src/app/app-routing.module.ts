@@ -4,6 +4,7 @@ import { CardProductosComponent } from './componentes/card-productos/card-produc
 import { FormProductoComponent } from './componentes/form-producto/form-producto.component';
 import { TablaProductosComponent } from './componentes/tabla-productos/tabla-productos.component';
 import { TablaUsuariosComponent } from './componentes/tabla-usuarios/tabla-usuarios.component';
+import { DashboardGuard } from './guard/dashboard/dashboard.guard';
 import { LoginGuard } from './guard/login/login.guard';
 import { PagarGuard } from './guard/pagar/pagar.guard';
 import { PedidosGuard } from './guard/pedidos/pedidos.guard';
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path:'pagar', component:PagoComponent, canActivate:[PagarGuard]},
   { path:'pedidos', component:PedidosComponent, canActivate:[PedidosGuard]},
   //--------admin---------------------------------------------------
-  {path:'dashboard', component: DashboardComponent,
+  {path:'dashboard', component: DashboardComponent, 
     children:[
       { path:'productos', component:CrudproductosComponent,
       children:[
@@ -46,7 +47,7 @@ const routes: Routes = [
       ]
       },
       
-    ]},
+    ], canActivate:[DashboardGuard]},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 
